@@ -41,3 +41,13 @@ const Perguntas = [
         ]
     }
 ]; 
+
+let atual = 0;
+let perguntaExposta;
+
+function exposiçãodaPergunta() {
+    perguntaExposta = Perguntas[atual];
+    boxPerguntas.textContent = perguntaExposta.enunciado;
+}
+
+perguntaExposta()

@@ -1,10 +1,11 @@
-const QuadroPrincipal = document.querySelector(".caixa-principal");
-const boxPerguntas = document.querySelector(".caixa-perguntas");
-const Alternativas = document.querySelector(".caixa-alternativas");
-const boxResultado = document.querySelector(".caixa-resultado");
-const Resultado = document.querySelector(".texto-resultado");
+const caixaPrincipal = document.querySelector(".caixa-principal");
+const caixaPerguntas = document.querySelector(".caixa-perguntas");
+const caixaAlternativas = document.querySelector(".caixa-alternativas");
+const caixaResultado = document.querySelector(".caixa-resultado");
+const textoResultado = document.querySelector(".texto-resultado");
 
-const Perguntas = [
+
+const perguntas = [
     {
         enunciado: "Pergunta 1",
         alternativas: [
@@ -39,15 +40,23 @@ const Perguntas = [
             "Alternativa 1",
             "Alternativa 2"
         ]
-    }
+    },
 ]; 
 
 let atual = 0;
-let perguntaExposta;
+let perguntaAtual;
 
-function exposiçãodaPergunta() {
-    perguntaExposta = Perguntas[atual];
-    boxPerguntas.textContent = perguntaExposta.enunciado;
+function mostraPergunta() {
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
+}
+function mostraAlternativas() {
+    for(const alternativa of perguntaAtual.alternativas) {
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativa.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
 }
 
-perguntaExposta()
+mostraPergunta();

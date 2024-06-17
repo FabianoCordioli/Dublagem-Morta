@@ -26,3 +26,17 @@ body {
 h1{
     color: var(--cor-aparente);
 }
+
+button {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-do-texto);
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover{
+    background-color: var(--cor-aparente);
+    color: var(--cor-principal);
+}

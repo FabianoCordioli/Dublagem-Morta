@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Playwrite+IT+Moderna:wght@100..400&display=swap');
+
 :root {
-    --cor-fundo: #ffffff;
-    --cor-principal: #999123;
-    --cor-secundaria: #c9c9c9;
-    --cor-aparente: #eeff00;
+    --cor-fundo: #03020e;
+    --cor-principal: #1b032b;
+    --cor-secundaria: #6969695e;
+    --cor-aparente: #ec7615;
     --cor-do-texto: #111;
   }
 
 body {
     background-color: var(--cor-fundo);
     color: var(--cor-do-texto);
+    font-family: "Chakra Petch", sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +30,10 @@ h1{
     color: var(--cor-aparente);
 }
 
+h1, .caixa-perguntas, .caixa-resultado{
+    font-family: "Playwrite IT Moderna", cursive;
+}
+
 button {
     background-color: var(--cor-secundaria);
     color: var(--cor-do-texto);
@@ -39,4 +46,18 @@ button {
 button:hover{
     background-color: var(--cor-aparente);
     color: var(--cor-principal);
+}
+
+.caixa-alternativas{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.caixa-resultado{
+    display: none;
+}
+
+.caixa-resultado-mostrar{
+    display: block;
 }

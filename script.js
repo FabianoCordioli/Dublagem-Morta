@@ -1,77 +1,12 @@
+import { aleatorio } from "./aleatorio.js";
+import { perguntas } from "./perguntas.js";
+
 const caixaPrincipal = document.querySelector(".caixa-principal");
 const caixaPerguntas = document.querySelector(".caixa-perguntas");
 const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
-
-
-const perguntas = [
-    {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia",
-        alternativas: [
-            {
-                texto: "Isso é assustador!",
-                afirmacao: "afirmacao"
-            },
-            {
-                texto: "Isso é maravilhoso!",
-                afirmacao: "afirmacao"
-            }
-        ]
-    },    
-    {
-        enunciado: "Pergunta 2",
-        alternativas: [
-            {
-                texto: "Isso é assustador!",
-                afirmacao: "afirmacao"
-            },
-            {
-                texto: "Isso é maravilhoso!",
-                afirmacao: "afirmacao"
-            }
-        ]
-    },
-    {
-        enunciado: "Pergunta 3",
-        alternativas: [
-            {
-                texto: "Isso é assustador!",
-                afirmacao: "afirmacao"
-            },
-            {
-                texto: "Isso é maravilhoso!",
-                afirmacao: "afirmacao"
-            }
-        ]
-    },
-    {
-        enunciado: "Pergunta 4",
-        alternativas: [
-            {
-                texto: "Isso é assustador!",
-                afirmacao: "afirmacao"
-            },
-            {
-                texto: "Isso é maravilhoso!",
-                afirmacao: "afirmacao"
-            }
-        ]
-    },
-    {
-        enunciado: "Pergunta 5",
-        alternativas: [
-            {
-                texto: "Isso é assustador!",
-                afirmacao: "afirmacao"
-            },
-            {
-                texto: "Isso é maravilhoso!",
-                afirmacao: "afirmacao"
-            }
-        ]
-    },
-]; 
+const JogarNovamente = document.querySelector(".novamente-btn");
 
 let atual = 0;
 let perguntaAtual;
@@ -91,13 +26,13 @@ function mostraAlternativas() {
     for(const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa.texto;
-        botaoAlternativas.addEventListener("click", () => respostaEscolhida(alternativa))
+        botaoAlternativas.addEventListener("click", () => respostaSelecionada(alternativa))
         caixaAlternativas.appendChild(botaoAlternativas);
     }
 }
 
-function respostaEscolhida(opcaoSelecionada){
-    const afirmacoes = opcaoSelecionada.afirmacoes;
+function respostaSelecionada(opcaoSelecionada){
+    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
     historiaFinal += afirmacoes + " ";
     atual++;
     mostraPergunta();
@@ -106,9 +41,16 @@ function respostaEscolhida(opcaoSelecionada){
 function mostraResultado(){
     caixaPerguntas.textContent = "Em 2077...";
     textoResultado.textContent = historiaFinal;
-    caixaAlternativas.textContent = ""; 
+    caixaAlternativas.textContent = "";
+    caixaResultado.classList.add("mostrar");
+    JogarNovamente.addEventListener("click", jogaNovamente);
+}
+
+function jogaNovamente(){
+    atual = 0;
+    historiaFinal = "";
+    caixaResultado.classList.remove("mostrar");
+    mostraPergunta();
 }
 
 mostraPergunta();
-
-

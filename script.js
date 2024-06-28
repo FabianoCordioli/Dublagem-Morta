@@ -7,10 +7,24 @@ const caixaAlternativas = document.querySelector(".caixa-alternativas");
 const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 const JogarNovamente = document.querySelector(".novamente-btn");
+const botãoComeço = document.querySelector(".começo-btn");
+const telaInicial = document.querySelector(".tela-de-começo");
 
 let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
+
+botãoComeço.addEventListener('click', iniciaJogo);
+
+function iniciaJogo(){
+    atual = 0;
+    historiaFinal = "";
+    telaInicial.style.display = 'nome';
+    caixaPerguntas.classList.remove("mostrar");
+    caixaAlternativas.classList.remove("mostrar");
+    caixaResultado.classList.remove("mostrar");
+    mostraPergunta();
+}
 
 function mostraPergunta() {
     if(atual >= perguntas.length){
@@ -34,7 +48,12 @@ function mostraAlternativas() {
 function respostaSelecionada(opcaoSelecionada){
     const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
     historiaFinal += afirmacoes + " ";
-    atual++;
+    if(opcaoSelecionada.proxima !== undefined){
+        atual = opcaoSelecionada.proxima;
+    }else{
+        mostraResultado();
+        return;
+    }
     mostraPergunta();
 }
 
@@ -60,4 +79,3 @@ function nomeDiferente(){
 }
 
 nomeDiferente();
-mostraPergunta();

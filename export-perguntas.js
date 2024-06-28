@@ -5,15 +5,18 @@ export const perguntas = [
             {
                 texto: "Isso é assustador!",
                 afirmacao: [ 
-                "afirmacao",
-                ""
-            ]
+                    "afirmacao",
+                    ""
+                ],
+                proxima: 1,
             },
             {
                 texto: "Isso é maravilhoso!",
                 afirmacao: [
-                "afirmacao"
-            ]
+                "afirmacao",
+                ""
+                ],
+                proxima: 2,
             }
         ]
     },    
@@ -24,13 +27,15 @@ export const perguntas = [
                 texto: "Isso é assustador!",
                 afirmacao: [ 
                 "afirmacao"
-            ]
+                ],
+                proxima: 3,
             },
             {
                 texto: "Isso é maravilhoso!",
                 afirmacao: [
                 "afirmacao"
-            ]
+                ],
+                proxima: 4,
             }
         ]
     },
@@ -41,13 +46,15 @@ export const perguntas = [
                 texto: "Isso é assustador!",
                 afirmacao: [ 
                 "afirmacao"
-            ]
+                ],
+                proxima: 5,
             },
             {
                 texto: "Isso é maravilhoso!",
                 afirmacao: [ 
                 "afirmacao"
-            ]
+                ],
+                proxima: 5,
             }
         ]
     },
@@ -58,13 +65,15 @@ export const perguntas = [
                 texto: "Isso é assustador!",
                 afirmacao: [ 
                 "afirmacao"
-            ]
+                ],
+                proxima: 5,
             },
             {
                 texto: "Isso é maravilhoso!",
                 afirmacao: [
                 "afirmacao"
-            ]
+                ],
+                proxima: 5,
             }
         ]
     },
